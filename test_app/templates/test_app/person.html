@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 1rem;
+            font-family: "Poppins";
+        }
+
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>
+            <label for="f_name">Enter First Name</label>
+            <input type="text" name="f_name" id="f_name" required>
+        </p>
+
+        <p>
+            <label for="l_name">Enter Last Name</label>
+            <input type="text" name="l_name" id="l_name" required>
+        </p>
+
+        <p>
+            <label for="email">Enter E-Mail</label>
+            <input type="email" name="email" id="email" required>
+        </p>
+
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+    <a href="{% url 'test_app:all_person' %}">View Persons in the Database</a>
+</body>
+
+</html>

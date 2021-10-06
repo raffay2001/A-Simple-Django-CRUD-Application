@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 1rem;
+            font-family: "Poppins";
+        }
+        h1{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    {% if all_person_list %}
+    <h1>All Persons List</h1>
+    <table>
+        <thead>
+            <th><b>Serial No.</b></th>
+            <th><b>First Name</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>Email</b></th>
+        </thead>
+        {% for person in all_person_list %}
+        <tbody>
+            <td>{{person.id}}</td>
+            <td>{{person.f_name}}</td>
+            <td>{{person.l_name}}</td>
+            <td>{{person.email}}</td>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+
+
+    {% else %}
+    <h1>No Persons Available</h1>
+
+    {% endif %}
+
+    <hr>
+    <form method="GET">
+
+        <!-- SEARCH FOR A PERSON  -->
+        <h2>Search for a Person</h2>
+        <label for="search">Search for Persons</label>
+        <input type="search" name="person_info" id="search">
+        <input type="submit" value="Search">
+
+        <!-- UPDATE A PERSON  -->
+        <hr>
+        <h2>Update a Person's Record</h2>
+        <label for="serial">Enter the Serial Number of the Person to Update:</label>
+        <input type="search" name="serial" id="serial"><br>
+
+        <label for="update_fname">Enter First Name:</label>
+        <input type="search" name="update_fname" id="update_fname"><br>
+
+        <label for="update_lname">Enter Last Name:</label>
+        <input type="search" name="update_lname" id="update_lname"><br>
+
+        <label for="update_email">Enter E-Mail:</label>
+        <input type="search" name="update_email" id="update_email"><br>
+
+        <input type="submit" value="Submit"> 
+
+        <!-- DELETE A PERSON  -->
+        <hr>
+        <h2>Delete a Person</h2>
+        <label for="delete">Enter Serial No./f_name/l_name/email of a Person to delete: </label>
+        <input type="search" name="del_person" id="delete">
+        <input type="submit" value="Delete Person">
+
+        <hr>
+        <!-- GO BACK BTN  -->
+        <a href="{% url 'test_app:person' %}">Go Back to Add a Person</a>
+
+
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Calculator</title>
+</head>
+<body>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <p>
+            <label for="num1">Enter the 1st Number: </label>
+            <input type="text" name="num1" id="num1" value="{{num1}}">
+        </p>
+
+        <br>
+
+        <p>
+            <label for="num2">Enter the 2nd Number: </label>
+            <input type="text" name="num2" id="num2" value="{{num2}}">
+        </p>
+
+        <br>
+
+        <p>
+            <label for="res">Result</label>
+            <input type="text" name="res" id="res" value="{{res}}">
+        </p>
+
+        <br>
+
+        <input type="submit" value="Add The Numbers">
+
+
+    </form>
+
+
+</body>
+</html>
